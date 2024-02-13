@@ -1,0 +1,53 @@
+.header {
+    background-color: var(--color-background-gray);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+}
+
+.header__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 32px;
+}
+
+.header__title {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: var(--color-main);
+}
+
+.header__cart {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.header__cart:hover {
+    background-color: #f4f4f4;
+}
+
+.header__cart-count {
+    color: white;
+    border-radius: 50%;
+    background-color: #16a34a;
+    width: 14px;
+    height: 14px;
+    font-size: 0.65rem;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

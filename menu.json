@@ -1,0 +1,104 @@
+[
+    {
+        "name": "Alitas de Pollo Picantes",
+        "desc": "Alitas crujientes bañadas en una salsa picante.",
+        "price": 9.99
+    },
+    {
+        "name": "Salteado de Verduras",
+        "desc": "Verduras frescas salteadas a la perfección.",
+        "price": 8.49
+    },
+    {
+        "name": "Salmón a la Parrilla",
+        "desc": "Filete de salmón salvaje, sazonado y a la parrilla.",
+        "price": 12.99
+    },
+    {
+        "name": "Pasta Carbonara",
+        "desc": "Pasta cremosa con tocino y parmesano.",
+        "price": 10.99
+    },
+    {
+        "name": "Pizza Margherita",
+        "desc": "Pizza clásica con tomate, albahaca y mozzarella.",
+        "price": 11.49
+    },
+    {
+        "name": "Tacos de Res",
+        "desc": "Carne tierna con ingredientes frescos en tortillas suaves.",
+        "price": 7.99
+    },
+    {
+        "name": "Ensalada César",
+        "desc": "Lechuga romana crujiente con aderezo César.",
+        "price": 6.99
+    },
+    {
+        "name": "Camarones al Ajillo",
+        "desc": "Camarones jugosos en salsa de mantequilla de ajo sobre pasta.",
+        "price": 13.99
+    },
+    {
+        "name": "Costillas a la Barbacoa",
+        "desc": "Costillas que se deshacen en salsa de barbacoa.",
+        "price": 15.99
+    },
+    {
+        "name": "Pollo Parmesano",
+        "desc": "Pollo empanizado cubierto con salsa marinara y queso.",
+        "price": 11.99
+    },
+    {
+        "name": "Sopa de Verduras",
+        "desc": "Sopa abundante con verduras surtidas.",
+        "price": 5.99
+    },
+    {
+        "name": "Tabla de Sushi",
+        "desc": "Rollos de sushi surtidos con salsa de soja y wasabi.",
+        "price": 16.99
+    },
+    {
+        "name": "Steak Frites",
+        "desc": "Filete a la parrilla servido con papas fritas crujientes.",
+        "price": 18.99
+    },
+    {
+        "name": "Risotto de Champiñones",
+        "desc": "Risotto cremoso con champiñones y parmesano.",
+        "price": 14.49
+    },
+    {
+        "name": "Wrap César de Pollo",
+        "desc": "Pollo a la parrilla, lechuga y aderezo César en un wrap.",
+        "price": 9.49
+    },
+    {
+        "name": "Tiramisú",
+        "desc": "Postre italiano clásico con café y mascarpone.",
+        "price": 6.49
+    },
+    {
+        "name": "Hamburguesa de Res",
+        "desc": "Hamburguesa jugosa con lechuga, tomate y queso.",
+        "price": 10.49
+    },
+    {
+        "name": "Pad Thai",
+        "desc": "Fideos salteados con camarones, tofu y cacahuetes.",
+        "price": 12.49
+    },
+    {
+        "name": "Plato de Falafel",
+        "desc": "Bolitas de falafel crujientes con hummus y pita.",
+        "price": 8.99
+    },
+    {
+        "name": "Brownie de Chocolate",
+        "desc": "Brownie de chocolate rico y pegajoso con helado.",
+        "price": 5.49
+    }
+]
+
+

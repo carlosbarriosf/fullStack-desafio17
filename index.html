@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos en linea</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="stylesheet" href="styles/cart.css">
+</head>
+<body>
+    <header class="header">
+        <ul class="header__list">
+            <h2 class="header__title">Pedidos</h2>
+            <button data-cart-button type="button" class="header__cart">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2.25 2.25a.75.75 0 0 0 0 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 0 0-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 0 0 0-1.5H5.378A2.25 2.25 0 0 1 7.5 15h11.218a.75.75 0 0 0 .674-.421 60.358 60.358 0 0 0 2.96-7.228.75.75 0 0 0-.525-.965A60.864 60.864 0 0 0 5.68 4.509l-.232-.867A1.875 1.875 0 0 0 3.636 2.25H2.25ZM3.75 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" />
+                </svg>
+                <div data-cart-count class="header__cart-count"></div>                      
+            </button>
+        </ul>
+    </header>
+
+    <aside data-cart class="cart">
+        <div data-summary class="summary">
+            <template data-order-template>
+                <div class="cart__order">
+                    <p data-order-dish class="cart__order-dish"></p>
+                    <p data-order-price class="cart__order-price"></p>
+                    <p data-order-quantity class="cart__order-quantity"></p>
+                    <p data-order-subtotal class="cart__order-subTotal"></p>
+                </div>
+            </template>
+        </div>
+        <div data-total-container class="cart__total">
+            <p class="cart__total-price">Total: <span data-total-price></span></p>
+            <button class="cart__total-submit" type="button">Enviar pedido</button>
+        </div>
+        <div data-empty-cart class="cart__empty">
+            <p>Aún no tienes nada añadido al carro</p>
+            <button data-goToMenu type="button" class="cart__total-submit">Ir al menú</button>
+        </div>
+    </aside>
+
+    <div class="menu">
+        <h2 class="menu__title">Nuestro Menú</h2>
+
+        <div class="menu__items-container" id="menuContainer">
+            <template data-item-template>
+                <div data-menu-item class="menu__item">
+                    <h3 data-dish class="menu__item-title"></h3>
+                    <p data-desc class="menu__item-description"></p>
+                    <p data-price class="menu__item-price"></p>
+                    <div data-controls class="menu__item-controls">
+
+                        <div class="menu__item-add">
+                            <button data-minus type="button" class="btn">&minus;</button>
+                            <span data-item-quantity class="menu__quantity"></span>
+                            <button data-plus type="button" class="btn">&plus;</button>
+                            <button data-addToCart class="addToCart">Añadir</button>
+                        </div>
+
+                    </div>
+                    <div data-item-count></div>
+                </div>
+            </template>
+        </div>
+
+    </div>
+
+
+    <script type="module" src="js/menuFiller.js" ></script>
+    <script defer type="module" src="js/script.js"></script>
+    <script type="module" src="js/cart.js"></script>
+</body>
+</html>
