@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/cart.css">
+    <link rel="stylesheet" href="styles/modal.css">
 </head>
 <body>
     <header class="header">
@@ -36,12 +37,32 @@
         </div>
         <div data-total-container class="cart__total">
             <p class="cart__total-price">Total: <span data-total-price></span></p>
-            <button class="cart__total-submit" type="button">Enviar pedido</button>
+            <button data-send-order class="submit-btn" type="button">Enviar pedido</button>
         </div>
         <div data-empty-cart class="cart__empty">
             <p>Aún no tienes nada añadido al carro</p>
-            <button data-goToMenu type="button" class="cart__total-submit">Ir al menú</button>
+            <button data-goToMenu type="button" class="submit-btn">Ir al menú</button>
         </div>
+
+        <dialog data-form-modal class="modal">
+            <div class="form-container">
+                <button data-close-modal class="close-btn">&times;</button>
+                <form action="" class="userData" data-send-form>
+                    <label for="userName">Nombre</label>
+                    <input class="userData__field" type="text" name="userName" id="userName" required>
+                    <label for="userAdress">Dirección</label>
+                    <input class="userData__field" type="text" name="userAdress" id="userAdress" required>
+                    <label for="userPhone">Teléfono</label>
+                    <input class="userData__field" type="tel" name="userPhone" id="userPhone" required>
+                    <label for="userMail">E-mail</label>
+                    <input class="userData__field" type="e" name="userMail" id="userMail">
+                    <div class="submit-btn-container">
+                        <button type="submit" class="submit-btn">Realizar Pedido</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
     </aside>
 
     <div class="menu">
@@ -69,6 +90,17 @@
         </div>
 
     </div>
+
+    <dialog data-success-modal class="modal">
+        <div class="success-modal">
+            <h3>Pedido enviado con éxito!</h3>
+            <p>Su pedido:</p>
+            <template data-success-modal-template>
+                <div data-final-order-container class="finalOrder-container">
+                </div>
+            </template>
+        </div>
+    </dialog>
 
 
     <script type="module" src="js/menuFiller.js" ></script>

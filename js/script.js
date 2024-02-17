@@ -9,6 +9,10 @@ let activeItem = null;
 //Initializing the cart
 const cart = [];
 
+//variable that holds the number of the same dish
+let counter = 0;
+
+
 document.addEventListener('click', (e) => {
     menuItems.forEach(item => {
         if(!item.contains(e.target)) {
@@ -16,20 +20,24 @@ document.addEventListener('click', (e) => {
             const quantity = item.querySelector('[data-item-quantity]');
             controls.style = 'pointer-events: none; opacity: 0;';
             quantity.innerText = "";
+            counter = 0;
+
         }
     })
 })
 
 
-
+let totalPriceSum = 0;
 
 
 menuItems.forEach(item => {
-    let counter = 0;
     
+    const controls = item.querySelector('[data-controls]');
+    const quantity = item.querySelector('[data-item-quantity]');
     item.addEventListener('click', (e) => {
-        const controls = item.querySelector('[data-controls]');
-        const quantity = item.querySelector('[data-item-quantity]');
+
+        const cart = document.querySelector('[data-cart]');
+        cart.classList.remove('cartToggle')
 
         if (activeItem && activeItem !== item) {
             const prevControls = activeItem.querySelector('[data-controls]');
@@ -63,10 +71,10 @@ menuItems.forEach(item => {
 
     const addOrder = item.querySelector('[data-addToCart]');
     addOrder.addEventListener('click', () => {
-        console.log(item)
+        // console.log(item)
         const dish = item.querySelector('[data-dish]').innerText;
         const itemIndexInMenu = menu.findIndex(element => element.name === dish);
-        console.log(itemIndexInMenu)
+        // console.log(itemIndexInMenu)
         const order = {};
         if(counter > 0) {
 
@@ -89,7 +97,7 @@ menuItems.forEach(item => {
         if(!isEmptyObject(order)) {
             const orderTemplate = document.querySelector('[data-order-template]');
             const orderElement = orderTemplate.content.cloneNode(true).children[0];
-            console.log(orderElement)
+            // console.log(orderElement)
             const orderDish = orderElement.querySelector('[data-order-dish]');
             orderDish.innerText = order.dish;
             const orderQuantity = orderElement.querySelector('[data-order-quantity]');
@@ -103,11 +111,11 @@ menuItems.forEach(item => {
             cartSummaryElement.appendChild(orderElement);
 
             const subtotalArray = cart.map( order => order.subtotal)
-            console.log(subtotalArray)
+            // console.log(subtotalArray)
             const initialValue = 0;
-            const totalPriceSum = subtotalArray.reduce((acummulator, currentvalue) => acummulator + currentvalue, initialValue,
+            totalPriceSum = subtotalArray.reduce((acummulator, currentvalue) => acummulator + currentvalue, initialValue,
             )
-            console.log(totalPriceSum)
+            // console.log(totalPriceSum)
 
             const totalPriceElement = document.querySelector('[data-total-price]');
             totalPriceElement.innerText = `$ ${totalPriceSum}`;
@@ -115,8 +123,70 @@ menuItems.forEach(item => {
             const cartCount = document.querySelector('[data-cart-count]');
             cartCount.innerText = cart.length;
             cartCount.style.opacity = '1';
+
+
         }
+        counter = 0;
+        quantity.innerText = "";
     })
+})
+
+const sendOrderBtn = document.querySelector('[data-send-order]');
+const formModal = document.querySelector('[data-form-modal]')
+const closeModalBtn = document.querySelector('[data-close-modal]');
+const successModal = document.querySelector('[data-success-modal]');
+
+
+
+closeModalBtn.addEventListener('click', () => {
+    formModal.close();
+})
+
+sendOrderBtn.addEventListener('click', () => {
+    formModal.showModal();
+})
+
+const sendOrderForm = document.querySelector('[data-send-form]');
+
+sendOrderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log('first')
+    
+    const finalOrderTemplate = document.querySelector('[data-success-modal-template]');
+    console.log(finalOrderTemplate)
+    const finalOrderContainer = finalOrderTemplate.content.cloneNode(true).children[0];
+    console.log(finalOrderContainer)
+
+    cart.forEach(order => {
+        console.log(order)
+        const p = document.createElement('p');
+        p.innerText = `${order.quantity} ${order.dish}`;
+        finalOrderContainer.appendChild(p);
+    })
+
+    const finalPrice = document.createElement('p');
+    finalPrice.classList.add('finalPrice')
+    finalPrice.innerText = `Total:  $${totalPriceSum}`;
+
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.classList.add('submit-btn');
+    closeBtn.innerText = 'Cerrar';
+    closeBtn.addEventListener('click', () => {
+        successModal.close();
+    })
+
+    const btnContainer = document.createElement('div');
+    btnContainer.style = 'display: flex; width: 100%; justify-content: center; margin-top: 0.5rem';
+    btnContainer.appendChild(closeBtn)
+
+
+    successModal.appendChild(finalOrderContainer);
+    successModal.appendChild(finalPrice);
+    successModal.appendChild(btnContainer);
+
+    formModal.close();
+    successModal.showModal();
 })
 
 

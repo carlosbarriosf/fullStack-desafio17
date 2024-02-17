@@ -66,3 +66,33 @@
     height: 24px;
     text-align: center;
 }
+
+
+ /* xs */
+ /* @media (min-width: 475px) {} */
+
+ /* sm */
+ /* @media (min-width: 640px) {} */
+
+ /* lg */
+ /* @media (min-width: 768px) {} */
+
+ /* xl */
+ @media (min-width: 1024px) {
+    .menu__items-container {
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+ }
+
+ /* 2xl */
+ /* @media (min-width: 1280px) {
+    .cart {
+        width: 500px;
+
+    }
+ } */
+
+ /* 3xl */
+ /* @media (min-width: 1536px) {} */

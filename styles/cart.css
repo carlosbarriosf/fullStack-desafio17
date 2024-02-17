@@ -63,7 +63,7 @@
     font-size: 0.9rem;
 }
 
-.cart__total-submit {
+.submit-btn {
     border: 1px solid var(--color-main);
     background-color: white;
     border-radius: 6px;
@@ -74,7 +74,7 @@
     transition: all 0.3s;
 }
 
-.cart__total-submit:hover {
+.submit-btn:hover {
     background-color: var(--color-success);
     color: white;
     border-color: white;
@@ -96,12 +96,17 @@
  /* xl */
  @media (min-width: 1024px) {
     .cart {
-        width: 30%;
+        max-width: 350px;
     }
  }
 
  /* 2xl */
- /* @media (min-width: 1280px) {} */
+ /* @media (min-width: 1280px) {
+    .cart {
+        width: 500px;
+
+    }
+ } */
 
  /* 3xl */
  /* @media (min-width: 1536px) {} */
