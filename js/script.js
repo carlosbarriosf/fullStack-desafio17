@@ -113,8 +113,7 @@ menuItems.forEach(item => {
             const subtotalArray = cart.map( order => order.subtotal)
             // console.log(subtotalArray)
             const initialValue = 0;
-            totalPriceSum = subtotalArray.reduce((acummulator, currentvalue) => acummulator + currentvalue, initialValue,
-            )
+            totalPriceSum = subtotalArray.reduce((acummulator, currentvalue) => acummulator + currentvalue, initialValue,)
             // console.log(totalPriceSum)
 
             const totalPriceElement = document.querySelector('[data-total-price]');
@@ -153,9 +152,9 @@ sendOrderForm.addEventListener('submit', (e) => {
     console.log('first')
     
     const finalOrderTemplate = document.querySelector('[data-success-modal-template]');
-    console.log(finalOrderTemplate)
+    // console.log(finalOrderTemplate)
     const finalOrderContainer = finalOrderTemplate.content.cloneNode(true).children[0];
-    console.log(finalOrderContainer)
+    // console.log(finalOrderContainer)
 
     cart.forEach(order => {
         console.log(order)
@@ -174,6 +173,7 @@ sendOrderForm.addEventListener('submit', (e) => {
     closeBtn.innerText = 'Cerrar';
     closeBtn.addEventListener('click', () => {
         successModal.close();
+        location.reload()
     })
 
     const btnContainer = document.createElement('div');
